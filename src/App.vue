@@ -1,32 +1,49 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <nav-header class="nav-header"></nav-header>
+    <player-body class="player-body"></player-body>
+    <player-bar class="playbar"></player-bar>
   </div>
 </template>
 
-<style lang="less">
+<script>
+import PlayerBody from "@/components/PlayerBody";
+import NavHeader from "@/components/NavHeader";
+import PlayerBar from "@/components/PlayerBar";
+
+export default {
+  name: "app",
+  components: {
+    NavHeader,
+    PlayerBody,
+    PlayerBar,
+  },
+};
+</script>
+
+<style scoped lang="less">
+@header-height: 60px;
+@playbar-height: 75px;
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  height: 100%;
 }
 
-#nav {
-  padding: 30px;
+.nav-header {
+  height: @header-height;
+  background-color: #232326;
+  border-bottom: 2px solid #b62424;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.player-body {
+  height: calc(100% - @header-height - @playbar-height);
+  background-color: #2b2b2b;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.playbar {
+  height: @playbar-height;
+  border-top: 1px solid #333;
+  background-color: #232326;
+  position: relative;
 }
 </style>

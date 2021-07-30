@@ -5,7 +5,7 @@ import {
 
 const http = axios.create({
     timeout: 10 * 1000,
-    baseURL: 'http://catbk.cn:3000'
+    baseURL: 'https://udkisangel.ml/net-music-api'
 });
 
 http.interceptors.request.use(config => {
